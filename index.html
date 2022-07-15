@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        button {
+            padding: 1em;
+            font-size: 12px;
+            
+        }
+
+        .box {
+            width: 30%;
+            padding: 1.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: space-between;
+            border: 1px solid black;
+            border-radius: 1em;
+            background: whitesmoke;
+            display: none;
+        }
+
+        .t {
+            cursor: pointer;
+        }
+
+        .t:hover {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="reg-btn t">Зарегестрироваться</div>
+    <div class="log-btn t">Войти</div>
+
+    <div class="box reg">
+    <p>Registration</p>
+    <form method="post" action="/">
+        <input type="text" name="register_name" placeholder="Имя пользователя"><br>
+        <input type="text" name="register_password" placeholder="пароль"><br>
+        <input type="text" name="repeat_password" placeholder="повторите пароль"><br>
+        <button>REG!</button>
+    </form>
+    </div>    
+
+    <div class="box log">
+    <p>login</p>
+
+    <form method="post" action="/">
+        <input type="text" name="login" placeholder="Имя пользователя"><br>
+        <input type="text" name="password" placeholder="пароль"><br>
+        <button>log in</button>
+    </form>
+
+    </div>
+
+
+    <script type="text/javascript">
+        const reg_btn = document.querySelector('.reg-btn')
+        reg_btn.addEventListener("click", () => {show_el('.reg'); hide_el('.log')});
+        const log_btn = document.querySelector('.log-btn')
+        log_btn.addEventListener("click", () => {show_el('.log'); hide_el('.reg')});
+
+        function show_el(style) {
+            document.querySelector(style).style.display = "flex"
+        }
+
+        function hide_el(style) {
+            document.querySelector(style).style.display = "none"
+        }
+    </script>
+</body>
+</html>
